@@ -9,7 +9,18 @@ import eventsRoutes from './routes/events.js';
 import swapsRoutes from './routes/swaps.js';
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173", // For local dev
+      "https://slot-swapper-ashen.vercel.app", 
+    ],
+    methods: ["GET", "POST", "PATCH", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 app.use(morgan('dev'));
 
