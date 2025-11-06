@@ -12,14 +12,15 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "http://localhost:5173", // For local dev
-      "https://slot-swapper-ashen.vercel.app", 
+      "http://localhost:5173", 
+      "https://slot-swapper-ashen.vercel.app/"
     ],
     methods: ["GET", "POST", "PATCH", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
 );
+
 
 app.use(express.json());
 app.use(morgan('dev'));
